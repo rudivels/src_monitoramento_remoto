@@ -8,5 +8,6 @@ rudi@ 20/10/2020
 - Rotinas para comunicação Modbus-Rtu
 
 Sincronizado com o codigo no Raspberry
-Pasta /home/pi/src
-Paste /Users/rudi/src/src_monitoramento_remoto 
+Pasta local /home/pi/src
+Pasta local /Users/rudi/src/src_monitoramento_remoto 
+Pasta remota https://github.com/rudivels/src_monitoramento_remoto
