@@ -2,10 +2,9 @@
 
 rudi@ 20/10/2020
  
-- Programa monitor
-- Rotinas para ler ACD
-- Rotinas para comunicação Mqtt
-- Rotinas para comunicação Modbus-Rtu
+- Programa monitor (linguagem C)
+- Rotinas para ler a tensão de alimentação do Rasp Zero (Liguagem C)
+- Rotinas para comunicação Mqtt e Modbus-RTU (Pyhton)
 
 Sincronizado com o codigo no Raspberry
 

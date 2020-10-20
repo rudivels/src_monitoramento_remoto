@@ -1,3 +1,9 @@
-conv_adc2tens  : conv_adc2tens.c
-	gcc -o conv_adc2tens conv_adc2tens.c -lwiringPi -lpthread
+le_bateria  : le_bateria.c
+	gcc -o le_bateria le_bateria.c -lwiringPi -lpthread
         
+le_rede  : le_rede.c
+	gcc -o le_rede le_rede.c -lwiringPi -lpthread
+
+le_corr_bat  : le_corr_bat.c
+	gcc -o le_corr_bat le_corr_bat.c -lwiringPi -lpthread
+	
