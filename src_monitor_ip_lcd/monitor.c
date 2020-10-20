@@ -6,15 +6,6 @@
 // Adicionar leitura de tensao rede e bateria  26-07-2020
 // Adicionar 3 botoes no painel 26-07-2020
 
-// Novo hardware 23 de agosto com Raspberry Zero
-
-
-// Funcionalidade
-// Testa comunicacao Modbus e escreve no LCD
-// imprime endereco IP no LCD
-// imprime data e hora at boot time
-// imprime data e hora atual
-// leia botoes no painel
 
 // Pino  4 LCD funcao RS ou /CS  chip select        === Fio branco  === ligado a Raspberry pino 24 WiringPi 10 SPI0 CS0
 // Pino  5 LCD funcao RW ou /SID Sserial data input === Fio cinza   === ligado a Raspberry pino 19 WiringPi 12 SPI0 MOSI
@@ -27,6 +18,16 @@
 
 // Pwm pino 35 - wiringpi 24 
 // saida comparador tensao pino 33 wiringpi 23
+
+// Novo hardware 23 de agosto com Raspberry Zero
+// Funcionalidade
+// Testa comunicacao Modbus e escreve no LCD
+// imprime endereco IP no LCD
+// imprime data e hora at boot time
+// imprime data e hora atual
+// xx/09/2020 leia botoes no painel
+// 20/10/2020 organizando o codigo 
+
 
 
 #include <wiringPi.h>           //WiringPi headers
@@ -90,6 +91,12 @@ int leia_status_modbus(void)
  if (c=='1') return(1); else return(0);
 }
 
+
+int leia_status_mqtt(void)
+{
+ return(1);
+} 
+
 char bateria[5];
 char rede[4];
 char corr_rede[3];
@@ -151,11 +158,8 @@ int main(void)
  time(&rawtime_boot); 
  strftime(datum, 20, "%m-%d %H:%M:%S", localtime(&rawtime_boot)); 
  liga_lcd(); //setup_rasp_lcd(); 
-// setup_adc();
  lcd_str(IPpath);
  tela_inicial();
-// goto_lcd(4,1); 
-// lcd_str(datum);
  
  if (signal(SIGINT, sig_handler_shutdown)== SIG_ERR)
  {
@@ -164,8 +168,6 @@ int main(void)
  }
  
  sleep(2);
-// goto_lcd(3,1);
-// lcd_str("V=    B=        ");
  estado=0;
  while(1) 
  {
@@ -177,7 +179,6 @@ int main(void)
 			if (c==0) write_data_lcd('0');else write_data_lcd('1');
 
 			time(&rawtime);
-//			strftime(datum,20, "%m-%d %H:%M:%S", localtime(&rawtime)); 
 			strftime(datum,20, "%H:%M:%S", localtime(&rawtime)); 
 			goto_lcd(4,8);
 			lcd_str(datum);
