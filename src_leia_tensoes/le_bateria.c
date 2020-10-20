@@ -102,13 +102,7 @@ int main(void)
  int i=0;
  setup_pwm();
  mapea_pinos();
- 
-//  while (i<10){
-  printf("%4.1f\n",adc_bateria());
-//  printf("%3.0f\n",adc_rede());
-//  i++;
-
-// }
-} 
+ printf("%4.1f\n",adc_bateria());
+}
  
 
