@@ -106,11 +106,9 @@ void leia_status_tensoes(void)
  fp2 = fopen("/home/pi/src/leia_tensoes/rede.log","r");
  fscanf(fp2,"%s",&rede);
  fclose(fp2);
- 
  fp2 = fopen("/home/pi/src/leia_tensoes/corr_rede.log","r");
  fscanf(fp2,"%s",&corr_rede);
  fclose(fp2);
- 
  fp2 = fopen("/home/pi/src/leia_tensoes/corr_bat.log","r");
  fscanf(fp2,"%s",&corr_bat);
  fclose(fp2);
