@@ -55,8 +55,11 @@ agora=t[:19]
 
 f2 = open("/home/pi/src/src_monitoramento_remoto/src_comun_mqtt_modbus_rtu/modbuscon.log","w")
 
-if mod_medidor.testa()==0 :
-    f2.write = f2.write("0\n")
+if mod_medidor.testa()==1 :
+    f2.write("1\n")
+    f2.close()
+else:
+    f2.write("0\n")
     f2.close()
     print("# " + str(agora) + "; Sem modbus ")
     if (logfile == True) :
@@ -66,8 +69,6 @@ if mod_medidor.testa()==0 :
         f.close()
     sys.exit(0)
 
-f2.write("1\n")
-f2.close()
 
 #------------------------------------------------------
 # leia frequencia , tensao , corrente, fatorpotencia

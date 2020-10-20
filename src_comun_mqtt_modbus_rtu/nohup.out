@@ -1,0 +1,133 @@
+2020-10-20 14:08:12;60.0;179.1;0.0;0.0;0.0;0.0;0.0;0.0;0.0;0.0
+Traceback (most recent call last):
+  File "/home/pi/src/MicroHydro_Scada/publish_microhydro_002.py", line 107, in <module>
+    publish.single("ChapHydro", s ,hostname="mqtt.eclipse.org")
+  File "/home/pi/.local/lib/python3.7/site-packages/paho/mqtt/publish.py", line 228, in single
+    protocol, transport, proxy_args)
+  File "/home/pi/.local/lib/python3.7/site-packages/paho/mqtt/publish.py", line 163, in multiple
+    client.connect(hostname, port, keepalive)
+  File "/home/pi/.local/lib/python3.7/site-packages/paho/mqtt/client.py", line 937, in connect
+    return self.reconnect()
+  File "/home/pi/.local/lib/python3.7/site-packages/paho/mqtt/client.py", line 1071, in reconnect
+    sock = self._create_socket_connection()
+  File "/home/pi/.local/lib/python3.7/site-packages/paho/mqtt/client.py", line 3522, in _create_socket_connection
+    return socket.create_connection(addr, source_address=source, timeout=self._keepalive)
+  File "/usr/lib/python3.7/socket.py", line 727, in create_connection
+    raise err
+  File "/usr/lib/python3.7/socket.py", line 716, in create_connection
+    sock.connect(sa)
+OSError: [Errno 113] No route to host
+2020-10-20 14:08:38;60.0;179.7;0.0;0.0;0.0;0.0;0.0;0.0;0.0;0.0
+Traceback (most recent call last):
+  File "/home/pi/src/MicroHydro_Scada/publish_microhydro_002.py", line 107, in <module>
+    publish.single("ChapHydro", s ,hostname="mqtt.eclipse.org")
+  File "/home/pi/.local/lib/python3.7/site-packages/paho/mqtt/publish.py", line 228, in single
+    protocol, transport, proxy_args)
+  File "/home/pi/.local/lib/python3.7/site-packages/paho/mqtt/publish.py", line 163, in multiple
+    client.connect(hostname, port, keepalive)
+  File "/home/pi/.local/lib/python3.7/site-packages/paho/mqtt/client.py", line 937, in connect
+    return self.reconnect()
+  File "/home/pi/.local/lib/python3.7/site-packages/paho/mqtt/client.py", line 1071, in reconnect
+    sock = self._create_socket_connection()
+  File "/home/pi/.local/lib/python3.7/site-packages/paho/mqtt/client.py", line 3522, in _create_socket_connection
+    return socket.create_connection(addr, source_address=source, timeout=self._keepalive)
+  File "/usr/lib/python3.7/socket.py", line 727, in create_connection
+    raise err
+  File "/usr/lib/python3.7/socket.py", line 716, in create_connection
+    sock.connect(sa)
+OSError: [Errno 113] No route to host
+2020-10-20 14:09:03;60.0;180.9;0.0;0.0;0.0;0.0;0.0;0.0;0.0;0.0
+Traceback (most recent call last):
+  File "/home/pi/src/MicroHydro_Scada/publish_microhydro_002.py", line 107, in <module>
+    publish.single("ChapHydro", s ,hostname="mqtt.eclipse.org")
+  File "/home/pi/.local/lib/python3.7/site-packages/paho/mqtt/publish.py", line 228, in single
+    protocol, transport, proxy_args)
+  File "/home/pi/.local/lib/python3.7/site-packages/paho/mqtt/publish.py", line 163, in multiple
+    client.connect(hostname, port, keepalive)
+  File "/home/pi/.local/lib/python3.7/site-packages/paho/mqtt/client.py", line 937, in connect
+    return self.reconnect()
+  File "/home/pi/.local/lib/python3.7/site-packages/paho/mqtt/client.py", line 1071, in reconnect
+    sock = self._create_socket_connection()
+  File "/home/pi/.local/lib/python3.7/site-packages/paho/mqtt/client.py", line 3522, in _create_socket_connection
+    return socket.create_connection(addr, source_address=source, timeout=self._keepalive)
+  File "/usr/lib/python3.7/socket.py", line 727, in create_connection
+    raise err
+  File "/usr/lib/python3.7/socket.py", line 716, in create_connection
+    sock.connect(sa)
+OSError: [Errno 113] No route to host
+2020-10-20 14:09:28;60.0;182.0;0.0;0.0;0.0;0.0;0.0;0.0;0.0;0.0
+Traceback (most recent call last):
+  File "/home/pi/src/MicroHydro_Scada/publish_microhydro_002.py", line 107, in <module>
+    publish.single("ChapHydro", s ,hostname="mqtt.eclipse.org")
+  File "/home/pi/.local/lib/python3.7/site-packages/paho/mqtt/publish.py", line 228, in single
+    protocol, transport, proxy_args)
+  File "/home/pi/.local/lib/python3.7/site-packages/paho/mqtt/publish.py", line 163, in multiple
+    client.connect(hostname, port, keepalive)
+  File "/home/pi/.local/lib/python3.7/site-packages/paho/mqtt/client.py", line 937, in connect
+    return self.reconnect()
+  File "/home/pi/.local/lib/python3.7/site-packages/paho/mqtt/client.py", line 1071, in reconnect
+    sock = self._create_socket_connection()
+  File "/home/pi/.local/lib/python3.7/site-packages/paho/mqtt/client.py", line 3522, in _create_socket_connection
+    return socket.create_connection(addr, source_address=source, timeout=self._keepalive)
+  File "/usr/lib/python3.7/socket.py", line 727, in create_connection
+    raise err
+  File "/usr/lib/python3.7/socket.py", line 716, in create_connection
+    sock.connect(sa)
+OSError: [Errno 113] No route to host
+2020-10-20 14:09:54;60.0;182.8;0.0;0.0;0.0;0.0;0.0;0.0;0.0;0.0
+Traceback (most recent call last):
+  File "/home/pi/src/MicroHydro_Scada/publish_microhydro_002.py", line 107, in <module>
+    publish.single("ChapHydro", s ,hostname="mqtt.eclipse.org")
+  File "/home/pi/.local/lib/python3.7/site-packages/paho/mqtt/publish.py", line 228, in single
+    protocol, transport, proxy_args)
+  File "/home/pi/.local/lib/python3.7/site-packages/paho/mqtt/publish.py", line 163, in multiple
+    client.connect(hostname, port, keepalive)
+  File "/home/pi/.local/lib/python3.7/site-packages/paho/mqtt/client.py", line 937, in connect
+    return self.reconnect()
+  File "/home/pi/.local/lib/python3.7/site-packages/paho/mqtt/client.py", line 1071, in reconnect
+    sock = self._create_socket_connection()
+  File "/home/pi/.local/lib/python3.7/site-packages/paho/mqtt/client.py", line 3522, in _create_socket_connection
+    return socket.create_connection(addr, source_address=source, timeout=self._keepalive)
+  File "/usr/lib/python3.7/socket.py", line 727, in create_connection
+    raise err
+  File "/usr/lib/python3.7/socket.py", line 716, in create_connection
+    sock.connect(sa)
+OSError: [Errno 113] No route to host
+2020-10-20 14:10:19;60.0;184.2;0.0;0.0;0.0;0.0;0.0;0.0;0.0;0.0
+Traceback (most recent call last):
+  File "/home/pi/src/MicroHydro_Scada/publish_microhydro_002.py", line 107, in <module>
+    publish.single("ChapHydro", s ,hostname="mqtt.eclipse.org")
+  File "/home/pi/.local/lib/python3.7/site-packages/paho/mqtt/publish.py", line 228, in single
+    protocol, transport, proxy_args)
+  File "/home/pi/.local/lib/python3.7/site-packages/paho/mqtt/publish.py", line 163, in multiple
+    client.connect(hostname, port, keepalive)
+  File "/home/pi/.local/lib/python3.7/site-packages/paho/mqtt/client.py", line 937, in connect
+    return self.reconnect()
+  File "/home/pi/.local/lib/python3.7/site-packages/paho/mqtt/client.py", line 1071, in reconnect
+    sock = self._create_socket_connection()
+  File "/home/pi/.local/lib/python3.7/site-packages/paho/mqtt/client.py", line 3522, in _create_socket_connection
+    return socket.create_connection(addr, source_address=source, timeout=self._keepalive)
+  File "/usr/lib/python3.7/socket.py", line 727, in create_connection
+    raise err
+  File "/usr/lib/python3.7/socket.py", line 716, in create_connection
+    sock.connect(sa)
+OSError: [Errno 113] No route to host
+2020-10-20 14:10:45;60.0;181.8;0.0;0.0;0.0;0.0;0.0;0.0;0.0;0.0
+Traceback (most recent call last):
+  File "/home/pi/src/MicroHydro_Scada/publish_microhydro_002.py", line 107, in <module>
+    publish.single("ChapHydro", s ,hostname="mqtt.eclipse.org")
+  File "/home/pi/.local/lib/python3.7/site-packages/paho/mqtt/publish.py", line 228, in single
+    protocol, transport, proxy_args)
+  File "/home/pi/.local/lib/python3.7/site-packages/paho/mqtt/publish.py", line 163, in multiple
+    client.connect(hostname, port, keepalive)
+  File "/home/pi/.local/lib/python3.7/site-packages/paho/mqtt/client.py", line 937, in connect
+    return self.reconnect()
+  File "/home/pi/.local/lib/python3.7/site-packages/paho/mqtt/client.py", line 1071, in reconnect
+    sock = self._create_socket_connection()
+  File "/home/pi/.local/lib/python3.7/site-packages/paho/mqtt/client.py", line 3522, in _create_socket_connection
+    return socket.create_connection(addr, source_address=source, timeout=self._keepalive)
+  File "/usr/lib/python3.7/socket.py", line 727, in create_connection
+    raise err
+  File "/usr/lib/python3.7/socket.py", line 716, in create_connection
+    sock.connect(sa)
+OSError: [Errno 113] No route to host
