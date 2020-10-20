@@ -11,7 +11,9 @@ Sincronizado com o codigo no Raspberry
 
 - Pasta local /home/pi/src/src\_monitoramento\_remoto
 - Pasta local /Users/rudi/src/src\_monitoramento\_remoto 
-- Pasta remota https://github.com/rudivels/src\_monitoramento\_remoto
+- [Pasta remota githib.com/rudivels](https://github.com/rudivels/src_monitoramento_remoto)
+
+
 
 
 
