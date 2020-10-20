@@ -53,7 +53,7 @@ agora=t[:19]
 # Se for ok continua .. se nao finalize com sys.exit(0) 
 # e escreve mensagem no log..
 
-f2 = open("/home/pi/src/MicroHydro_Scada/modbuscon.log","w")
+f2 = open("/home/pi/src/src_monitoramento_remoto/src_comun_mqtt_modbus_rtu/modbuscon.log","w")
 
 if mod_medidor.testa()==0 :
     f2.write = f2.write("0\n")

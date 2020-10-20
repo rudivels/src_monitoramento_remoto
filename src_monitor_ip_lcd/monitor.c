@@ -84,7 +84,7 @@ int leia_status_modbus(void)
 {
  FILE *fp1;
  char c;
- fp1 = fopen("/home/pi/src/MicroHydro_Scada/modbuscon.log","r");
+ fp1 = fopen("/home/pi/src/src_monitoramento_remoto/src_comun_mqtt_modbus_rtu/modbuscon.log","r");
  fscanf(fp1,"%c",&c);
  fclose(fp1);
  // printf("%c",c);
@@ -107,16 +107,16 @@ char corr_bat[3];
 void leia_status_tensoes(void)
 {
  FILE *fp2;
- fp2 = fopen("/home/pi/src/leia_tensoes/bateria.log","r");
+ fp2 = fopen("/home/pi/src/src_monitoramento_remoto/src_leia_tensoes/bateria.log","r");
  fscanf(fp2,"%s",&bateria);
  fclose(fp2);
- fp2 = fopen("/home/pi/src/leia_tensoes/rede.log","r");
+ fp2 = fopen("/home/pi/src/src_monitoramento_remoto/src_leia_tensoes/rede.log","r");
  fscanf(fp2,"%s",&rede);
  fclose(fp2);
- fp2 = fopen("/home/pi/src/leia_tensoes/corr_rede.log","r");
+ fp2 = fopen("/home/pi/src/src_monitoramento_remoto/src_leia_tensoes/corr_rede.log","r");
  fscanf(fp2,"%s",&corr_rede);
  fclose(fp2);
- fp2 = fopen("/home/pi/src/leia_tensoes/corr_bat.log","r");
+ fp2 = fopen("/home/pi/src/src_monitoramento_remoto/src_leia_tensoes/corr_bat.log","r");
  fscanf(fp2,"%s",&corr_bat);
  fclose(fp2);
 }
