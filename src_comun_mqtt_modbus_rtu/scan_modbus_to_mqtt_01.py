@@ -25,7 +25,7 @@
 #                   importante eh quando faltou comunicacao e quando voltou. 
 #
 # versao 21/10/2020 Mudanca do diretorios e nomes e mudou para Raspberry pi Zero
-#                   mudou de publish_microhydro_002.py para scan_modbus_publish_mqtt_01.py
+#                   mudou de publish_microhydro_002.py para scan_modbus_to_mqtt_01.py
 #                   organizou os arquivos com repositorio no github
 #                     
 # 
