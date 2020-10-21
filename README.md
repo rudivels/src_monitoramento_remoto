@@ -2,9 +2,9 @@
 
 rudi@ 20/10/2020
  
-- 1. Programa monitor (linguagem C)
-- 2. Programa para ler a tensão de alimentação do Rasp Zero (Liguagem C)
-- 3. Programa para comunicação Mqtt e Modbus-RTU (Pyhton)
+1. Programa monitor
+2. Programa para ler a tensão de alimentação do Raspberry Zero
+3. Programa para comunicação Mqtt e Modbus-RTU
 
 Sincronizado com o codigo no Raspberry
 
@@ -21,6 +21,11 @@ Entradas
 - arquivo `bateria.log`
 - arquivo `modbuscon.log`
 - arquivo `mqttcon.log`
+- teclas de função
+
+Saída 
+
+- Display LCD
 
 ## 2. Programa para ler a tensão de alimentação do Raspberry Zero
 
@@ -54,7 +59,7 @@ O sript fica num loop e tem uma temporização por meio de um sleep(10)
 
 entrada
 
-- escrita no terminal da rotina  `scan_modbus_publish_mqtt_01.py` em python
+- escrita no terminal da rotina  `scan_modbus_publish_mqtt_01.py`
 
 saídas
 
