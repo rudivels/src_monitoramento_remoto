@@ -69,11 +69,6 @@ int leia_adc(int num_gpio)
  return(valor); 
 }
 
-float adc_rede(void)
-{ 
-  return( (220*leia_adc(3))/100) ;
-}
-
 float adc_bateria(void)
 {
   return(  (13*leia_adc(2))/226) ;
@@ -81,19 +76,6 @@ float adc_bateria(void)
 
 char bateria[5];
 char rede[4];
-
-/*void leia_status_tensoes(void)
-{
- FILE *fp2;
- fp2 = fopen("/home/pi/src/leia_tensoes/bateria.log","r");
- fscanf(fp2,"%s",&bateria);
- fclose(fp2);
- fp2 = fopen("/home/pi/src/leia_tensoes/rede.log","r");
- fscanf(fp2,"%s",&rede);
- fclose(fp2);
-}*/
-
-
 
 int main(void)
 {

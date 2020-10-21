@@ -12,7 +12,6 @@ $ gpio pwmc 10     // configura a frequencia do pwm (750hz)
 $ gpio pwmr 256     // configura o ratio, neste caso para uma resolução de 8 bits
 */
 
-
 void setup_pwm(void)
 {
   /* faca o setup do ADC com system call do gpio */  
@@ -31,7 +30,6 @@ void mapea_pinos(void)
  system("gpio export 27 in"); // exporta GPIO.2 para /sys/class/gpio/gpio27/value  
  system("gpio export 22 in"); // exporta GPIO.3 para /sys/class/gpio/gpio22/value
 } 
-
 
 int leia_gpio(int i)
 {
@@ -74,24 +72,9 @@ float adc_rede(void)
   return( (220*leia_adc(3))/100) ;
 }
 
-float adc_bateria(void)
-{
-  return(  (13*leia_adc(2))/226) ;
-}
 
 char bateria[5];
 char rede[4];
-
-/*void leia_status_tensoes(void)
-{
- FILE *fp2;
- fp2 = fopen("/home/pi/src/leia_tensoes/bateria.log","r");
- fscanf(fp2,"%s",&bateria);
- fclose(fp2);
- fp2 = fopen("/home/pi/src/leia_tensoes/rede.log","r");
- fscanf(fp2,"%s",&rede);
- fclose(fp2);
-}*/
 
 
 
@@ -102,13 +85,8 @@ int main(void)
  int i=0;
  setup_pwm();
  mapea_pinos();
- //
- // while (i<10){
- // printf("%4.1f\n",adc_bateria());
-  printf("%3.0f\n",adc_rede());
- // i++;
+ printf("%3.0f\n",adc_rede());
 
- //}
 } 
  
 
