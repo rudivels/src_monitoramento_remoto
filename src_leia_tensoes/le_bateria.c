@@ -24,21 +24,23 @@ void setup_pwm(void)
 }
 
 FILE *f2;
-FILE *f3;
+//FILE *f3;
 
 void mapea_pinos(void)
 {
  system("gpio export 27 in"); // exporta GPIO.2 para /sys/class/gpio/gpio27/value  
- system("gpio export 22 in"); // exporta GPIO.3 para /sys/class/gpio/gpio22/value
+// system("gpio export 22 in"); // exporta GPIO.3 para /sys/class/gpio/gpio22/value
 } 
 
 
-int leia_gpio(int i)
+int leia_gpio_bateria(void)
 {
  int x;
  char c;
- if (i==2) {f2=fopen("/sys/class/gpio/gpio27/value","r"); fscanf(f2, "%c", &c);fclose(f2);}
- if (i==3) {f3=fopen("/sys/class/gpio/gpio22/value","r"); fscanf(f3, "%c", &c);fclose(f3);}
+// if (i==2) {
+ f2=fopen("/sys/class/gpio/gpio27/value","r"); fscanf(f2, "%c", &c);fclose(f2);
+//}
+// if (i==3) {f3=fopen("/sys/class/gpio/gpio22/value","r"); fscanf(f3, "%c", &c);fclose(f3);}
  return(c-'0');
 }
 
@@ -52,7 +54,7 @@ void escreve_pwm(int i)
  system(str1); 
 }
 
-int leia_adc(int num_gpio) 
+int leia_adc(void) 
 {
  int i=0;
  int valor=0;
@@ -62,7 +64,7 @@ int leia_adc(int num_gpio)
  { 
    escreve_pwm(dummy+valor);
    usleep(10000);  // 10 mil micro espera filtrar e estabilizar
-   if(leia_gpio(num_gpio)==1) {valor = valor + dummy;}
+   if(leia_gpio_bateria()==1) {valor = valor + dummy;}
    i++;
    dummy=dummy >> 1;
  } 
@@ -71,11 +73,11 @@ int leia_adc(int num_gpio)
 
 float adc_bateria(void)
 {
-  return(  (13*leia_adc(2))/226) ;
+  return(  (13*leia_adc())/226) ;
 }
 
 char bateria[5];
-char rede[4];
+//char rede[4];
 
 int main(void)
 {
@@ -86,5 +88,5 @@ int main(void)
  mapea_pinos();
  printf("%4.1f\n",adc_bateria());
 }
- 
+
 

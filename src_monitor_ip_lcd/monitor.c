@@ -113,12 +113,12 @@ void leia_status_tensoes(void)
  fp2 = fopen("/home/pi/src/src_monitoramento_remoto/src_leia_tensoes/rede.log","r");
  fscanf(fp2,"%s",&rede);
  fclose(fp2);
- fp2 = fopen("/home/pi/src/src_monitoramento_remoto/src_leia_tensoes/corr_rede.log","r");
- fscanf(fp2,"%s",&corr_rede);
- fclose(fp2);
- fp2 = fopen("/home/pi/src/src_monitoramento_remoto/src_leia_tensoes/corr_bat.log","r");
- fscanf(fp2,"%s",&corr_bat);
- fclose(fp2);
+// fp2 = fopen("/home/pi/src/src_monitoramento_remoto/src_leia_tensoes/corr_rede.log","r");
+// fscanf(fp2,"%s",&corr_rede);
+// fclose(fp2);
+// fp2 = fopen("/home/pi/src/src_monitoramento_remoto/src_leia_tensoes/corr_bat.log","r");
+// fscanf(fp2,"%s",&corr_bat);
+// fclose(fp2);
 }
 
 
@@ -147,29 +147,29 @@ int main(void)
  int estado;
  int res;
  int i=0;
- char datum[80]; 
+ char datum[80];
  char str[10];
  int c;
  time_t rawtime;  // timer = time(NULL);
  time_t rawtime_boot;
  struct tm * timeinfo;
  res=leia_IP();
- 
- time(&rawtime_boot); 
+
+ time(&rawtime_boot);
  strftime(datum, 20, "%m-%d %H:%M:%S", localtime(&rawtime_boot)); 
  liga_lcd(); //setup_rasp_lcd(); 
  lcd_str(IPpath);
  tela_inicial();
- 
+
  if (signal(SIGINT, sig_handler_shutdown)== SIG_ERR)
  {
 	 goto_lcd(4,1);
 	 lcd_str("Erro signal");
  }
- 
+
  sleep(2);
  estado=0;
- while(1) 
+ while(1)
  {
   switch(estado)
   {
@@ -187,7 +187,7 @@ int main(void)
 				res=leia_IP();
 				goto_lcd(1,1);
 				if (res==1) lcd_str(IPpath); else lcd_str("Sem IP wifi    ");
-				i=0; 
+				i=0;
 			}
 			
 			leia_status_tensoes();
@@ -201,8 +201,8 @@ int main(void)
 			goto_lcd(3,14); if (digitalRead(25)==1)	write_data_lcd('1'); else write_data_lcd('0');
 			goto_lcd(3,15); if (digitalRead(29)==1)	write_data_lcd('1'); else write_data_lcd('0');	
 			
-			goto_lcd(4,1); lcd_str(corr_rede);
-			goto_lcd(4,4); lcd_str(corr_bat);
+//			goto_lcd(4,1); lcd_str(corr_rede);
+//			goto_lcd(4,4); lcd_str(corr_bat);
 			
 					
 			break;
