@@ -27,6 +27,7 @@
 # versao 21/10/2020 Mudanca do diretorios e nomes e mudou para Raspberry pi Zero
 #                   mudou de publish_microhydro_002.py para scan_modbus_to_mqtt_01.py
 #                   organizou os arquivos com repositorio no github
+# versao 22/10/2020 Quando detectar sem comunicacao no modbus manda valores zer para o broker
 #                     
 # 
 import mod_medidor
@@ -45,6 +46,8 @@ else :
 t=str(datetime.now())
 agora=t[:19]
 
+# agora="2020-10-22 01:38:36"
+
 ####
 ##   rotina para reduzir o string
 ##   s = str(agora) 
@@ -54,62 +57,81 @@ agora=t[:19]
 ##   2020-03-03 01:38:36
 ####
 
-# Testa comunicacao modbus
-# Se for ok continua .. se nao finalize com sys.exit(0) 
-# e escreve mensagem no log..
 
 f2 = open("/home/pi/src/src_monitoramento_remoto/src_comun_mqtt_modbus_rtu/modbuscon.log","w")
 
-if mod_medidor.testa()==1 :
+if (mod_medidor.testa()==1) :
     f2.write("1\n")
     f2.close()
+    publish.single("ChapHydro/rs485", (str(agora)+";"+"1") ,hostname="mqtt.eclipse.org")
+    frequencia = round(mod_medidor.leia(39),1)  # frequencia
+    publish.single("ChapHydro/frequencia", (str(agora)+";"+str(frequencia)) ,hostname="mqtt.eclipse.org")    
+    tensao_A =   round(mod_medidor.leia(1),1)   # tensao 1    
+    publish.single("ChapHydro/tensao_A", (str(agora)+";"+str(tensao_A)) ,hostname="mqtt.eclipse.org")        
+    tensao_B =   round(mod_medidor.leia(3),1)   # tensao 2
+    tensao_C =   round(mod_medidor.leia(5),1)   # tensao 2
+    corrente_A  =   round(mod_medidor.leia(13),1)   # tensao 2
+    corrente_B  =   round(mod_medidor.leia(15),1)   # tensao 2
+    corrente_C  =   round(mod_medidor.leia(17),1)   # tensao 2
+    pot_ativa_A =   round(mod_medidor.leia(25),1)   # tensao 2
+    pot_ativa_B =   round(mod_medidor.leia(27),1)   # tensao 2
+    pot_ativa_C =   round(mod_medidor.leia(29),1)   # tensao 2
+    fator_pot   =   round(mod_medidor.leia(53),1)   # tensao 2
+    s = str(agora)+";"+str(frequencia)+";"+ str(tensao_A)+";"+str(tensao_B)+";"+str(corrente_A)+";"+str(corrente_B)+";"+str(corrente_C)+";"+str(pot_ativa_A)+";"+str(pot_ativa_B)+";"+str(pot_ativa_B)+";"+str(fator_pot)
+    print(s)
+    if (logfile == True) :
+          f = open(sys.argv[1],"a")
+          f.write(s)
+          f.write("\n")
+          f.close()
+
+
 else:
     f2.write("0\n")
     f2.close()
-    print("# " + str(agora) + "; Sem modbus ")
+    publish.single("ChapHydro/rs485", (str(agora)+";"+"0") ,hostname="mqtt.eclipse.org")
+    frequencia = 0 #//round(mod_medidor.leia(39),1)  # frequencia
+    publish.single("ChapHydro/frequencia", (str(agora)+";"+str(frequencia)) ,hostname="mqtt.eclipse.org")  
+    tensao_A =   0 #//round(mod_medidor.leia(1),1)   # tensao 1
+    publish.single("ChapHydro/tensao_A", (str(agora)+";"+str(tensao_A)) ,hostname="mqtt.eclipse.org")  
+    tensao_B =   0 #//round(mod_medidor.leia(3),1)   # tensao 2
+    tensao_C =   0 #//round(mod_medidor.leia(5),1)   # tensao 2
+    corrente_A  =0 #//  round(mod_medidor.leia(13),1)   # tensao 2
+    corrente_B  =0 #   round(mod_medidor.leia(15),1)   # tensao 2
+    corrente_C  =0 #   round(mod_medidor.leia(17),1)   # tensao 2
+    pot_ativa_A =0 #   round(mod_medidor.leia(25),1)   # tensao 2
+    pot_ativa_B =0 #    round(mod_medidor.leia(27),1)   # tensao 2
+    pot_ativa_C =0 #   round(mod_medidor.leia(29),1)   # tensao 2
+    fator_pot   =0 #    round(mod_medidor.leia(53),1)   # tensao 2  
+    s = str(agora)+";"+str(frequencia)+";"+ str(tensao_A)+";"+str(tensao_B)+";"+str(corrente_A)+";"+str(corrente_B)+";"+str(corrente_C)+";"+str(pot_ativa_A)+";"+str(pot_ativa_B)+";"+str(pot_ativa_B)+";"+str(fator_pot)
+    print("# " + str(agora) + "; Sem modbus 2 ")
     if (logfile == True) :
         f = open(sys.argv[1],"a")
-        f.write("# " + str(agora) + "; Sem modbus ")
+        f.write("# " + str(agora) + "; Sem modbus 3")
         f.write("\n")
         f.close()
-    sys.exit(0)
 
 
-#------------------------------------------------------
-# leia frequencia , tensao , corrente, fatorpotencia
-frequencia = round(mod_medidor.leia(39),1)  # frequencia
-tensao_A =   round(mod_medidor.leia(1),1)   # tensao 1
-tensao_B =   round(mod_medidor.leia(3),1)   # tensao 2
-tensao_C =   round(mod_medidor.leia(5),1)   # tensao 2
 
-corrente_A  =   round(mod_medidor.leia(13),1)   # tensao 2
-corrente_B  =   round(mod_medidor.leia(15),1)   # tensao 2
-corrente_C  =   round(mod_medidor.leia(17),1)   # tensao 2
+f3 = open("/home/pi/src/src_monitoramento_remoto/src_leia_tensoes/rede.log","r")
+rede=f3.readline()
+f3.close()
+publish.single("ChapHydro/Rasp_rede", (str(agora)+";"+ rede) ,hostname="mqtt.eclipse.org") 
+   
+f3 = open("/home/pi/src/src_monitoramento_remoto/src_leia_tensoes/bateria.log","r")
+rede=f3.readline()
+f3.close()
+publish.single("ChapHydro/Rasp_bateria", (str(agora)+";"+ rede) ,hostname="mqtt.eclipse.org") 
 
-pot_ativa_A =   round(mod_medidor.leia(25),1)   # tensao 2
-pot_ativa_B =   round(mod_medidor.leia(27),1)   # tensao 2
-pot_ativa_C =   round(mod_medidor.leia(29),1)   # tensao 2
 
-fator_pot   =   round(mod_medidor.leia(53),1)   # tensao 2
+# s = str(agora)+";"+str(frequencia)+";"+ str(tensao_A)+";"+str(tensao_B)+";"+str(corrente_A)+";"+str(corrente_B)+";"+str(corrente_C)+";"+str(pot_ativa_A)+";"+str(pot_ativa_B)+";"+str(pot_ativa_B)+";"+str(fator_pot)
+#print(s)
+#if (logfile == True) :
+#    f = open(sys.argv[1],"a")
+#    f.write(s)
+#    f.write("\n")
+#    f.close()
 
-s = str(agora)+";"+str(frequencia)+";"+ str(tensao_A)+";"+str(tensao_B)+";"+str(corrente_A)+";"+str(corrente_B)+";"+str(corrente_C)+";"+str(pot_ativa_A)+";"+str(pot_ativa_B)+";"+str(pot_ativa_B)+";"+str(fator_pot)
-# print("Data hora; Frequencia ; Tensao A ; Tensao B ")
-# print(s)
-
-#frequencia = round(60*random(),1) 
-#tensao_A =   round(10*random(),1) 
-#tensao_B =   round(100*random(),1) 
-#------------------------------------------------------
-
-#s = str(agora)+";"+str(frequencia)+";"+ str(tensao_A)+";"+str(tensao_B)
 # publish.single("ChapHydro", s ,hostname="mqtt.eclipse.org")
-print(s)
-if (logfile == True) :
-    f = open(sys.argv[1],"a")
-    f.write(s)
-    f.write("\n")
-    f.close()
-
-publish.single("ChapHydro", s ,hostname="mqtt.eclipse.org")
 #
 # print("Publicou dados ")
