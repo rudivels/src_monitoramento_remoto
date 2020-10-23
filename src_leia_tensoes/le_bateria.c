@@ -86,7 +86,7 @@ int main(void)
  int i=0;
  setup_pwm();
  mapea_pinos();
- printf("%4.1f\n",adc_bateria());
+ printf("%4.1f",adc_bateria());
 }
 
 

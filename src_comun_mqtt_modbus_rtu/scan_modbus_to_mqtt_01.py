@@ -119,9 +119,9 @@ f3.close()
 publish.single("ChapHydro/Rasp_rede", (str(agora)+";"+ rede) ,hostname="mqtt.eclipse.org") 
    
 f3 = open("/home/pi/src/src_monitoramento_remoto/src_leia_tensoes/bateria.log","r")
-rede=f3.readline()
+bateria=f3.readline()
 f3.close()
-publish.single("ChapHydro/Rasp_bateria", (str(agora)+";"+ rede) ,hostname="mqtt.eclipse.org") 
+publish.single("ChapHydro/Rasp_bateria", (str(agora)+";"+ bateria) ,hostname="mqtt.eclipse.org") 
 
 
 # s = str(agora)+";"+str(frequencia)+";"+ str(tensao_A)+";"+str(tensao_B)+";"+str(corrente_A)+";"+str(corrente_B)+";"+str(corrente_C)+";"+str(pot_ativa_A)+";"+str(pot_ativa_B)+";"+str(pot_ativa_B)+";"+str(fator_pot)

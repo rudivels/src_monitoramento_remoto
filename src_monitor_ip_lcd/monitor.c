@@ -209,7 +209,8 @@ int main(void)
 	case 1: // mostra outra tela a partir de comando de tecla
 			break;
 	}		
-   usleep(70000);
+   // usleep(70000);
+   sleep(1);
  }
 } 
  

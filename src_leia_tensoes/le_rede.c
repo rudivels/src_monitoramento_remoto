@@ -82,7 +82,7 @@ int main(void)
  int i=0;
  setup_pwm();
  mapea_pinos();
- printf("%03d\n",adc_rede());
+ printf("%03d",adc_rede());
 }
 
 
