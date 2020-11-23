@@ -1,2 +1,3 @@
 src_comun_mqtt_modbus_rtu/*.log 
 src_comun_mqtt_modbus_rtu/*.txt
+.DS_Store
